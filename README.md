@@ -1,2 +1,2 @@
 # Wad-api-labs-2023
-Web app development node 
+Practical labs for the WAD2 module
