@@ -1,12 +1,15 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import tasksRouter from './api/tasks';
+import { v4 as uuidv4 } from 'uuid';
 
 dotenv.config();
 
 const app = express();
 
 const port = process.env.PORT;
+
+app.use(express.json());
 
 app.use('/api/tasks', tasksRouter);
 
