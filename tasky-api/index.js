@@ -4,7 +4,7 @@ import tasksRouter from './api/tasks';
 import { v4 as uuidv4 } from 'uuid';
 import './db';
 import usersRouter from './api/users';
-
+import cors from 'cors';
 
 
 dotenv.config();
@@ -20,6 +20,9 @@ const errHandler = (err, req, res, next) => {
 
 const app = express();
 
+// Enable CORS for all requests
+app.use(cors());
+
 const port = process.env.PORT;
 
 app.use(express.json());
@@ -29,6 +32,7 @@ app.use('/api/tasks', tasksRouter);
 app.use(errHandler);
 
 app.use('/api/users', usersRouter);
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
